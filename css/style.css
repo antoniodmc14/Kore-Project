@@ -1,0 +1,144 @@
+/**
+ * Kore — global stylesheet
+ *
+ * Complements Tailwind (index.html): custom fonts, scrollbar hiding, Lenis hooks,
+ * sticky work-card overrides, and team accordion panel states. Layout breakpoints
+ * stay in HTML via Tailwind classes.
+ */
+
+/* =============================================================================
+   TABLE OF CONTENTS
+   1. Variables        — (reserved; tokens live in Tailwind config)
+   2. Fonts            — @font-face (PP Neue Montreal)
+   3. Global           — html/body, scrollbars (smooth scroll: Lenis)
+   4. Layout           — overflow hero (parallax GSAP)
+   5. Components       — Lenis, sticky stack, team accordion
+   6. Responsive       — (reserved; responsive rules are Tailwind in HTML)
+   ============================================================================= */
+
+/* -----------------------------------------------------------------------------
+   1. Variables
+   -------------------------------------------------------------------------- */
+
+/* Intentionally empty: design tokens are extended in tailwind.config (index.html). */
+
+/* -----------------------------------------------------------------------------
+   2. Fonts
+   -------------------------------------------------------------------------- */
+
+@font-face {
+  font-family: "PP Neue Montreal";
+  src: url("../fonts/NeueMontreal-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "PP Neue Montreal";
+  src: url("../fonts/NeueMontreal-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* -----------------------------------------------------------------------------
+   3. Global — scrollbars (sin scroll-behavior en html; lo gestiona Lenis)
+   -------------------------------------------------------------------------- */
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbars globally while keeping scroll functional */
+html,
+body {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar,
+*::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+/* -----------------------------------------------------------------------------
+   4. Layout — parallax (imágenes escaladas)
+   -------------------------------------------------------------------------- */
+
+/* Parallax (GSAP): evita bordes visibles al escalar la imagen del hero */
+#hero {
+  overflow: hidden;
+}
+
+/* #company-details ya incluye overflow-hidden en Tailwind (index.html) */
+
+/* -----------------------------------------------------------------------------
+   5. Components
+   -------------------------------------------------------------------------- */
+
+/* --- Lenis (library hooks on html/body) --- */
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+/* --- Sticky work cards (#nuestro-trabajo): JS drives opacity/filter/transform --- */
+
+#trabajo-sticky-stack article.sticky > .sticky-card-inner {
+  transition: none;
+  will-change: transform, filter, opacity;
+}
+
+#trabajo-sticky-stack article.sticky > .sticky-card-inner p,
+#trabajo-sticky-stack article.sticky > .sticky-card-inner span {
+  transition: none;
+}
+
+/* --- Team accordion (desktop): open state supplements Tailwind transitions --- */
+
+#nuestro-equipo #team-accordion-desktop .team-accordion-panel {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+#nuestro-equipo #team-accordion-desktop .team-accordion-item.is-open .team-accordion-panel,
+#nuestro-equipo #team-accordion-desktop .team-accordion-item[data-state="open"] .team-accordion-panel {
+  max-height: 400px;
+  opacity: 1;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
+/* -----------------------------------------------------------------------------
+   6. Responsive
+   -------------------------------------------------------------------------- */
+
+/* Breakpoints and responsive layout are handled in index.html via Tailwind. */

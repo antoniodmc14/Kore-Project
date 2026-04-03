@@ -1,105 +1,12 @@
 <!doctype html>
+<!-- Kore — single-page marketing site: semantic regions, Tailwind UI, Lenis + main.js -->
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Kore</title>
 
-  <style>
-    @font-face {
-      font-family: "PP Neue Montreal";
-      src: url("fonts/NeueMontreal-Regular.woff2") format("woff2");
-      font-weight: 400;
-      font-style: normal;
-      font-display: swap;
-    }
-
-    @font-face {
-      font-family: "PP Neue Montreal";
-      src: url("fonts/NeueMontreal-Medium.woff2") format("woff2");
-      font-weight: 500;
-      font-style: normal;
-      font-display: swap;
-    }
-
-    .no-scrollbar {
-      -ms-overflow-style: none;
-      scrollbar-width: none;
-    }
-
-    .no-scrollbar::-webkit-scrollbar {
-      display: none;
-    }
-
-    /* Hide scrollbars globally (keep scrolling enabled) */
-    html,
-    body {
-      -ms-overflow-style: none; /* Edge/IE */
-      scrollbar-width: none; /* Firefox */
-    }
-
-    html::-webkit-scrollbar,
-    body::-webkit-scrollbar,
-    *::-webkit-scrollbar {
-      width: 0;
-      height: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    html.lenis,
-    html.lenis body {
-      height: auto;
-    }
-
-    .lenis.lenis-smooth {
-      scroll-behavior: auto !important;
-    }
-
-    .lenis.lenis-smooth [data-lenis-prevent] {
-      overscroll-behavior: contain;
-    }
-
-    .lenis.lenis-stopped {
-      overflow: hidden;
-    }
-
-    .lenis.lenis-scrolling iframe {
-      pointer-events: none;
-    }
-
-    #trabajo-sticky-stack article.sticky > .sticky-card-inner {
-      transition: none;
-      will-change: transform, filter, opacity;
-    }
-
-    #trabajo-sticky-stack article.sticky > .sticky-card-inner p,
-    #trabajo-sticky-stack article.sticky > .sticky-card-inner span {
-      transition: none;
-      will-change: color;
-    }
-
-    /* Scroll-driven fade-out is handled via JS (rAF) */
-
-    #nuestro-equipo #team-accordion-desktop .team-accordion-panel {
-      max-height: 0;
-      opacity: 0;
-      overflow: hidden;
-      padding-top: 0;
-      padding-bottom: 0;
-    }
-
-    #nuestro-equipo #team-accordion-desktop .team-accordion-item.is-open .team-accordion-panel,
-    #nuestro-equipo #team-accordion-desktop .team-accordion-item[data-state="open"] .team-accordion-panel {
-      max-height: 400px;
-      opacity: 1;
-      padding-top: 1.5rem;
-      padding-bottom: 1.5rem;
-    }
-
-  </style>
+  <link rel="stylesheet" href="css/style.css">
 
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -125,7 +32,7 @@
   <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
 </head>
 <body id="home" class="m-0 font-sans">
-  <header class="fixed top-0 z-50 h-[90px] w-full bg-transparent px-4">
+  <header class="fixed top-0 z-50 h-[90px] w-full bg-transparent px-4" aria-label="Site header">
     <div class="flex h-full items-center justify-between lg:max-w-[1440px] lg:mx-auto">
       <div class="flex items-center">
         <a href="#home" aria-label="Go to homepage">
@@ -154,7 +61,7 @@
     id="mobile-menu"
     class="fixed inset-y-0 right-0 z-[100] w-full translate-x-full bg-black/40 backdrop-blur-sm transition-transform duration-500 ease-in-out pointer-events-none group md:fixed md:inset-0 md:bg-black/40 md:backdrop-blur-sm md:flex md:items-center md:justify-center md:p-[36px] md:translate-x-0 md:opacity-0 md:pointer-events-none md:transition-opacity md:duration-500 md:ease-in-out lg:items-stretch lg:justify-end lg:p-0"
     aria-hidden="true"
-    aria-label="Mobile navigation"
+    aria-label="Site navigation menu"
   >
     <div
       id="menu-content-wrapper"
@@ -188,7 +95,7 @@
     </div>
   </nav>
 
-  <section id="hero" class="relative h-screen">
+  <section id="hero" class="relative h-screen" aria-labelledby="hero-title">
     <img
       src="img/Aeterna_Hero_02.png"
       alt="Aeterna Civis hero background"
@@ -199,6 +106,7 @@
       <div class="relative flex h-full flex-col justify-end items-start pb-20 lg:pb-12">
         <div class="mx-auto w-full px-4 md:max-w-[768px] md:px-[36px] lg:max-w-[1440px] lg:mx-auto lg:px-1 lg:relative">
           <h1
+            id="hero-title"
             class="text-[40px] font-medium leading-[1.05] text-white opacity-0 animate-fadeInUp [animation-delay:200ms] md:w-[350px] md:text-[62px] md:leading-[1.02] lg:text-[65px] lg:w-[380px] lg:mb-12"
           >
             Construyendo el horizonte del mañana
@@ -213,7 +121,7 @@
     </div>
   </section>
 
-  <section id="quienes-somos" class="scroll-mt-24 bg-white pt-20 pb-40 lg:pb-64">
+  <section id="quienes-somos" class="scroll-mt-24 bg-white pt-20 pb-40 lg:pb-64" aria-labelledby="quienes-somos-heading">
     <div class="mx-auto w-full px-4 md:max-w-[768px] md:px-[36px] lg:max-w-[1440px] lg:mx-auto lg:px-[24px]">
       <div class="flex items-center gap-2 mb-8">
         <div class="w-[9px] h-[9px] bg-[#7B7B7B]" aria-hidden="true"></div>
@@ -221,7 +129,7 @@
       </div>
       <div class="lg:flex lg:flex-row lg:justify-between lg:items-start lg:gap-24 lg:mt-16">
         <div class="lg:w-[55%] lg:min-w-[55%]">
-          <h2 class="text-[35px] font-normal leading-[1.10] text-black lg:text-[48px] lg:leading-[1.1]">
+          <h2 id="quienes-somos-heading" class="text-[35px] font-normal leading-[1.10] text-black lg:text-[48px] lg:leading-[1.1]">
             Desde 2016, proyectamos infraestructuras de gran escala en simbiosis con el entorno. Unimos
             ingeniería de vanguardia y rigor técnico para erigir hitos estructurales que definen el legado
             civil de las próximas generaciones.
@@ -269,7 +177,7 @@
     </div>
   </section>
 
-  <section id="company-details" class="relative h-[750px] w-full overflow-hidden md:h-[900px] lg:h-[900px]" aria-label="Company details">
+  <section id="company-details" class="relative h-[750px] w-full overflow-hidden md:h-[900px] lg:h-[900px]" aria-label="Company metrics and milestones">
     <img
       src="img/Aeterna_Details_02.png"
       alt=""
@@ -321,7 +229,7 @@
     </div>
   </section>
 
-  <section id="nuestro-equipo" class="scroll-mt-24 bg-white py-20 mb-32">
+  <section id="nuestro-equipo" class="scroll-mt-24 bg-white py-20 mb-32" aria-labelledby="nuestro-equipo-heading">
     <div class="mx-auto w-full px-4 md:max-w-[768px] md:px-[36px] lg:max-w-[1440px] lg:mx-auto lg:px-[24px]">
       <div class="lg:mt-16 lg:w-[55%] lg:min-w-[55%]">
         <div class="text-left lg:mb-8">
@@ -331,7 +239,7 @@
           </div>
         </div>
         <div class="text-left lg:mb-6">
-          <h2 class="text-[35px] font-normal leading-[1.10] text-black">
+          <h2 id="nuestro-equipo-heading" class="text-[35px] font-normal leading-[1.10] text-black">
             Ingeniería de vanguardia guiada por un liderazgo multidisciplinar.
           </h2>
         </div>
@@ -344,7 +252,7 @@
         </div>
       </div>
       <div class="mt-16">
-        <div class="grid grid-cols-2 gap-x-4 gap-y-8 lg:hidden">
+        <div class="grid grid-cols-2 gap-x-4 gap-y-8 lg:hidden" aria-label="Team members">
           <article>
             <div class="aspect-[3/4] overflow-hidden rounded-[2px]">
               <img src="img/Aeterna_Team_01.png" alt="Adrian Recalde" class="h-full w-full object-cover" />
@@ -375,11 +283,10 @@
           </article>
         </div>
 
-        <div id="team-accordion-desktop" class="hidden w-full lg:block" aria-label="Equipo (escritorio)">
+        <div id="team-accordion-desktop" class="hidden w-full lg:block" aria-label="Team members (desktop)">
           <div
             class="group team-accordion-item border-t border-[#7B7B7B]/30"
             data-state="closed"
-            aria-expanded="false"
           >
             <button
               type="button"
@@ -412,7 +319,6 @@
           <div
             class="group team-accordion-item border-t border-[#7B7B7B]/30"
             data-state="closed"
-            aria-expanded="false"
           >
             <button
               type="button"
@@ -445,7 +351,6 @@
           <div
             class="group team-accordion-item border-t border-[#7B7B7B]/30"
             data-state="closed"
-            aria-expanded="false"
           >
             <button
               type="button"
@@ -478,7 +383,6 @@
           <div
             class="group team-accordion-item border-b border-t border-[#7B7B7B]/30"
             data-state="closed"
-            aria-expanded="false"
           >
             <button
               type="button"
@@ -513,7 +417,7 @@
     </div>
   </section>
 
-  <section id="nuestro-trabajo" class="scroll-mt-24 bg-[#191919]">
+  <section id="nuestro-trabajo" class="scroll-mt-24 bg-[#191919]" aria-labelledby="nuestro-trabajo-heading">
     <div class="pt-32 lg:pt-48">
       <div class="mx-auto w-full px-4 md:max-w-[768px] md:px-[36px] lg:max-w-[1440px] lg:mx-auto lg:px-12">
         <div class="mb-10 flex items-center justify-start gap-2 text-left">
@@ -521,7 +425,7 @@
           <span class="text-[16px] font-normal text-[#7B7B7B]">Nuestro trabajo</span>
         </div>
         <div class="border-b border-white/10 pb-[88px] mb-24 lg:mb-24">
-          <h2 class="text-left text-[35px] font-normal leading-[1.10] text-white">
+          <h2 id="nuestro-trabajo-heading" class="text-left text-[35px] font-normal leading-[1.10] text-white">
             Ingeniería Civil Estratégica
           </h2>
         </div>
@@ -531,78 +435,78 @@
     <div id="trabajo-sticky-stack" class="mt-0 bg-[#191919]">
       <article class="sticky top-0 z-10 h-[500px]">
         <div class="mx-auto w-full px-4 md:max-w-[768px] md:px-[36px] lg:max-w-[1440px] lg:mx-auto lg:px-12">
-        <div class="sticky-card-inner relative box-border h-[500px] bg-[#191919] py-6 [will-change:transform,filter,opacity]">
-          <div
-            class="work-card-content relative grid h-[calc(500px-3rem)] grid-cols-1 grid-rows-[auto_minmax(0,1fr)] font-sans lg:grid-cols-[1fr_1.5fr_1fr] lg:grid-rows-1 lg:items-center lg:gap-16"
-          >
-            <p
-              class="mb-12 w-full self-start text-left text-[26px] font-normal text-white md:text-[30px] lg:self-center lg:mb-0 lg:col-start-1 lg:text-[34px] lg:leading-[1.3]"
+          <div class="sticky-card-inner relative box-border h-[500px] bg-[#191919] py-6 [will-change:transform,filter,opacity]">
+            <div
+              class="work-card-content relative grid h-[calc(500px-3rem)] grid-cols-1 grid-rows-[auto_minmax(0,1fr)] font-sans lg:grid-cols-[1fr_1.5fr_1fr] lg:grid-rows-1 lg:items-center lg:gap-16"
             >
-              Planificación Estratégica
-            </p>
-            <p
-              class="max-w-prose w-full self-start overflow-auto text-left text-[18px] font-normal leading-[1.5] text-white md:text-[18px] lg:self-center lg:overflow-visible lg:col-start-2 lg:text-[21px] lg:leading-[1.3]"
-            >
-            Soluciones diseñadas para soportar las exigencias de la movilidad moderna, la gestión de recursos hídricos y la conectividad territorial, garantizando la resiliencia y estabilidad de los activos críticos del mañana.
-            </p>
-            <span
-              class="flex justify-end w-full text-[130px] font-normal md:text-[170px] leading-none text-white font-sans lg:col-start-3 lg:flex lg:items-center lg:justify-end"
-              aria-hidden="true"
-            >01</span>
+              <p
+                class="mb-12 w-full self-start text-left text-[26px] font-normal text-white md:text-[30px] lg:self-center lg:mb-0 lg:col-start-1 lg:text-[34px] lg:leading-[1.3]"
+              >
+                Planificación Estratégica
+              </p>
+              <p
+                class="max-w-prose w-full self-start overflow-auto text-left text-[18px] font-normal leading-[1.5] text-white md:text-[18px] lg:self-center lg:overflow-visible lg:col-start-2 lg:text-[21px] lg:leading-[1.3]"
+              >
+                Soluciones diseñadas para soportar las exigencias de la movilidad moderna, la gestión de recursos hídricos y la conectividad territorial, garantizando la resiliencia y estabilidad de los activos críticos del mañana.
+              </p>
+              <span
+                class="flex justify-end w-full text-[130px] font-normal md:text-[170px] leading-none text-white font-sans lg:col-start-3 lg:flex lg:items-center lg:justify-end"
+                aria-hidden="true"
+              >01</span>
+            </div>
           </div>
-        </div>
         </div>
       </article>
       <article class="sticky top-0 z-20 h-[500px]">
         <div class="mx-auto w-full px-4 md:max-w-[768px] md:px-[36px] lg:max-w-[1440px] lg:mx-auto lg:px-12">
-        <div
-          class="sticky-card-inner relative box-border h-[500px] border-t border-white/10 bg-[#191919] py-6 [will-change:transform,filter,opacity]"
-        >
           <div
-            class="work-card-content relative grid h-[calc(500px-3rem)] grid-cols-1 grid-rows-[auto_minmax(0,1fr)] font-sans lg:grid-cols-[1fr_1.5fr_1fr] lg:grid-rows-1 lg:items-center lg:gap-16"
+            class="sticky-card-inner relative box-border h-[500px] border-t border-white/10 bg-[#191919] py-6 [will-change:transform,filter,opacity]"
           >
-            <p
-              class="mb-12 w-full self-start text-left text-[26px] font-normal text-white md:text-[30px] lg:self-center lg:mb-0 lg:col-start-1 lg:text-[34px] lg:leading-[1.3]"
+            <div
+              class="work-card-content relative grid h-[calc(500px-3rem)] grid-cols-1 grid-rows-[auto_minmax(0,1fr)] font-sans lg:grid-cols-[1fr_1.5fr_1fr] lg:grid-rows-1 lg:items-center lg:gap-16"
             >
-              Coordinación y Ejecución
-            </p>
-            <p
-              class="max-w-prose w-full self-start overflow-auto text-left text-[18px] font-normal leading-[1.5] text-white md:text-[18px] lg:self-center lg:overflow-visible lg:col-start-2 lg:text-[21px] lg:leading-[1.3]"
-            >
-            Gestión orientada a garantizar los plazos de entrega y la optimización de recursos, asegurando que cada activo institucional cumpla con los estándares de calidad y seguridad más exigentes.
-            </p>
-            <span
-              class="flex justify-end w-full text-[130px] font-normal md:text-[170px] leading-none text-white font-sans lg:col-start-3 lg:flex lg:items-center lg:justify-end"
-              aria-hidden="true"
-            >02</span>
+              <p
+                class="mb-12 w-full self-start text-left text-[26px] font-normal text-white md:text-[30px] lg:self-center lg:mb-0 lg:col-start-1 lg:text-[34px] lg:leading-[1.3]"
+              >
+                Coordinación y Ejecución
+              </p>
+              <p
+                class="max-w-prose w-full self-start overflow-auto text-left text-[18px] font-normal leading-[1.5] text-white md:text-[18px] lg:self-center lg:overflow-visible lg:col-start-2 lg:text-[21px] lg:leading-[1.3]"
+              >
+                Gestión orientada a garantizar los plazos de entrega y la optimización de recursos, asegurando que cada activo institucional cumpla con los estándares de calidad y seguridad más exigentes.
+              </p>
+              <span
+                class="flex justify-end w-full text-[130px] font-normal md:text-[170px] leading-none text-white font-sans lg:col-start-3 lg:flex lg:items-center lg:justify-end"
+                aria-hidden="true"
+              >02</span>
+            </div>
           </div>
-        </div>
         </div>
       </article>
       <article class="sticky top-0 z-30 h-[500px]">
         <div class="mx-auto w-full px-4 md:max-w-[768px] md:px-[36px] lg:max-w-[1440px] lg:mx-auto lg:px-12">
-        <div
-          class="sticky-card-inner relative box-border h-[500px] border-b border-t border-white/10 bg-[#191919] py-6 [will-change:transform,filter,opacity]"
-        >
           <div
-            class="work-card-content relative grid h-[calc(500px-3rem)] grid-cols-1 grid-rows-[auto_minmax(0,1fr)] font-sans lg:grid-cols-[1fr_1.5fr_1fr] lg:grid-rows-1 lg:items-center lg:gap-16"
+            class="sticky-card-inner relative box-border h-[500px] border-b border-t border-white/10 bg-[#191919] py-6 [will-change:transform,filter,opacity]"
           >
-            <p
-              class="mb-12 w-full self-start text-left text-[26px] font-normal text-white md:text-[30px] lg:self-center lg:mb-0 lg:col-start-1 lg:text-[34px] lg:leading-[1.3]"
+            <div
+              class="work-card-content relative grid h-[calc(500px-3rem)] grid-cols-1 grid-rows-[auto_minmax(0,1fr)] font-sans lg:grid-cols-[1fr_1.5fr_1fr] lg:grid-rows-1 lg:items-center lg:gap-16"
             >
-              Legado Sostenible
-            </p>
-            <p
-              class="max-w-prose w-full self-start overflow-auto text-left text-[18px] font-normal leading-[1.5] text-white md:text-[18px] lg:self-center lg:overflow-visible lg:col-start-2 lg:text-[21px] lg:leading-[1.3]"
-            >
-            Desarrollo enfocado en mitigar el impacto ambiental y maximizar la resiliencia del entorno, transformando la obra civil en un legado responsable que potencia la biodiversidad y el desarrollo social sostenible.
-            </p>
-            <span
-              class="flex justify-end w-full text-[130px] font-normal md:text-[170px] leading-none text-white font-sans lg:col-start-3 lg:flex lg:items-center lg:justify-end"
-              aria-hidden="true"
-            >03</span>
+              <p
+                class="mb-12 w-full self-start text-left text-[26px] font-normal text-white md:text-[30px] lg:self-center lg:mb-0 lg:col-start-1 lg:text-[34px] lg:leading-[1.3]"
+              >
+                Legado Sostenible
+              </p>
+              <p
+                class="max-w-prose w-full self-start overflow-auto text-left text-[18px] font-normal leading-[1.5] text-white md:text-[18px] lg:self-center lg:overflow-visible lg:col-start-2 lg:text-[21px] lg:leading-[1.3]"
+              >
+                Desarrollo enfocado en mitigar el impacto ambiental y maximizar la resiliencia del entorno, transformando la obra civil en un legado responsable que potencia la biodiversidad y el desarrollo social sostenible.
+              </p>
+              <span
+                class="flex justify-end w-full text-[130px] font-normal md:text-[170px] leading-none text-white font-sans lg:col-start-3 lg:flex lg:items-center lg:justify-end"
+                aria-hidden="true"
+              >03</span>
+            </div>
           </div>
-        </div>
         </div>
       </article>
     </div>
@@ -647,7 +551,7 @@
 
         <div class="mt-28 mr-auto max-w-[300px] min-w-0 grid grid-cols-2 gap-16 md:mr-0 md:max-w-max md:ml-[calc((100%-696px)/2)] lg:mt-0 lg:col-start-3 lg:col-span-1 lg:flex lg:justify-end lg:gap-16">
           <div class="min-w-0 text-left">
-            <p class="mb-6 text-[18px] font-medium text-[#525252]">Navegación</p>
+            <h3 class="mb-6 text-[18px] font-medium text-[#525252]">Navegación</h3>
             <nav class="flex flex-col gap-y-4" aria-label="Navegación principal">
               <a href="#home" class="text-[16px] font-normal text-[#898989]">Home</a>
               <a href="#quienes-somos" class="text-[16px] font-normal text-[#898989]">Quienes somos</a>
@@ -657,7 +561,7 @@
           </div>
 
           <div class="min-w-0 text-left">
-            <p class="mb-6 text-[16px] font-medium text-[#525252]">Links</p>
+            <h3 class="mb-6 text-[16px] font-medium text-[#525252]">Links</h3>
             <nav class="flex flex-col gap-y-4" aria-label="Redes sociales">
               <a href="#" class="text-[16px] font-normal text-[#898989]">Linkedin</a>
               <a href="#" class="text-[16px] font-normal text-[#898989]">Instagram</a>
@@ -674,283 +578,8 @@
       </div>
     </div>
   </footer>
-  <script>
-    const lenis = new Lenis({
-      duration: 1.2,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      direction: "vertical",
-      gestureDirection: "vertical",
-      smooth: true,
-      mouseMultiplier: 1,
-      smoothTouch: false,
-      touchMultiplier: 2,
-      infinite: false
-    });
-    window.lenis = lenis;
-
-    document.addEventListener("click", function (e) {
-      const anchor = e.target.closest && e.target.closest('a[href^="#"]');
-      if (!anchor) return;
-      const href = anchor.getAttribute("href");
-      if (!href || href === "#") return;
-      const hashIndex = href.indexOf("#", 1);
-      if (hashIndex !== -1) return;
-      const id = href.slice(1);
-      if (!id) return;
-      const target = document.getElementById(id);
-      if (!target) return;
-      e.preventDefault();
-      if (typeof window.lenis.scrollTo !== "function") return;
-
-      const isMenuOpen = typeof window.__isMobileMenuOpen === "function" && window.__isMobileMenuOpen();
-      if (isMenuOpen && typeof window.__closeMobileMenuForScroll === "function") {
-        window.__closeMobileMenuForScroll();
-      }
-
-      const runScroll = () => window.lenis.scrollTo(`#${id}`, { offset: -80, duration: 1.5 });
-      if (isMenuOpen) {
-        setTimeout(runScroll, 60);
-        return;
-      }
-      runScroll();
-    });
-
-    function updateStickyCards() {
-      const stack = document.getElementById("trabajo-sticky-stack");
-      if (!stack) return;
-      const articles = stack.querySelectorAll("article.sticky");
-      articles.forEach((article, i) => {
-        const inner = article.querySelector(":scope > .sticky-card-inner");
-        if (!inner) return;
-        const content = inner.querySelector(".work-card-content");
-        if (!content) return;
-        const next = articles[i + 1];
-
-        if (!next) {
-          content.style.opacity = "1";
-          content.style.filter = "brightness(1)";
-          content.style.transform = "translate3d(0, 0, 0)";
-          return;
-        }
-
-        const curRect = article.getBoundingClientRect();
-        const nxtRect = next.getBoundingClientRect();
-        const overlap = Math.max(0, Math.min(curRect.height, curRect.bottom - nxtRect.top));
-        const progress =
-          curRect.height > 0 ? Math.min(1, Math.max(0, overlap / curRect.height)) : 0;
-
-        // Fade + darken + subtle lift as the next card overlaps this one.
-        // Opacity: 1 -> 0.2, Brightness: 1 -> 0.5, Y: 0 -> -20px
-        const opacity = 1 - progress * 0.8;
-        const brightness = 1 - progress * 0.5;
-        const y = -progress * 20;
-
-        content.style.opacity = String(Math.max(0, opacity));
-        content.style.filter = `brightness(${Math.max(0, brightness)})`;
-        content.style.transform = `translate3d(0, ${y}px, 0)`;
-      });
-    }
-
-    let stickyCardsRafId = null;
-    function scheduleStickyCardsUpdate() {
-      if (stickyCardsRafId !== null) return;
-      stickyCardsRafId = requestAnimationFrame(() => {
-        stickyCardsRafId = null;
-        updateStickyCards();
-      });
-    }
-
-    lenis.on("scroll", scheduleStickyCardsUpdate);
-    window.addEventListener("resize", scheduleStickyCardsUpdate, { passive: true });
-    scheduleStickyCardsUpdate();
-
-    function raf(time) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-
-    requestAnimationFrame(raf);
-  </script>
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const teamAccordionDesktop = document.getElementById("team-accordion-desktop");
-      if (teamAccordionDesktop) {
-        teamAccordionDesktop.querySelectorAll(".team-accordion-trigger").forEach((btn) => {
-          btn.addEventListener("click", () => {
-            const item = btn.closest(".team-accordion-item");
-            if (!item) return;
-            const wasOpen = item.classList.contains("is-open");
-            teamAccordionDesktop.querySelectorAll(".team-accordion-item").forEach((el) => {
-              el.classList.remove("is-open");
-              el.setAttribute("data-state", "closed");
-              el.setAttribute("aria-expanded", "false");
-              const trigger = el.querySelector(".team-accordion-trigger");
-              if (trigger) trigger.setAttribute("aria-expanded", "false");
-            });
-            if (!wasOpen) {
-              item.classList.add("is-open");
-              item.setAttribute("data-state", "open");
-              item.setAttribute("aria-expanded", "true");
-              btn.setAttribute("aria-expanded", "true");
-            }
-          });
-        });
-      }
-
-      const logoImg = document.querySelector("header img");
-      const logoLink = logoImg ? logoImg.closest("a") : null;
-      const HERO_SCROLL_MAX = 500;
-
-      if (logoImg && logoLink && window.lenis && typeof window.lenis.on === "function") {
-        function setHeaderLogoVisible(visible) {
-          logoImg.style.opacity = visible ? "1" : "0";
-          if (visible) {
-            logoLink.classList.remove("pointer-events-none");
-          } else {
-            logoLink.classList.add("pointer-events-none");
-          }
-        }
-
-        function getScrollY() {
-          if (typeof window.lenis.scroll === "number" && !Number.isNaN(window.lenis.scroll)) {
-            return window.lenis.scroll;
-          }
-          return window.scrollY;
-        }
-
-        function syncLogoForHeroZone() {
-          if (getScrollY() < HERO_SCROLL_MAX) {
-            setHeaderLogoVisible(true);
-          }
-        }
-
-        window.lenis.on("scroll", (lenisInstance) => {
-          if (!lenisInstance) {
-            return;
-          }
-          const y =
-            typeof lenisInstance.scroll === "number" ? lenisInstance.scroll : getScrollY();
-          if (y < HERO_SCROLL_MAX) {
-            setHeaderLogoVisible(true);
-            return;
-          }
-          const direction = lenisInstance.direction;
-          if (direction === -1) {
-            setHeaderLogoVisible(true);
-          } else if (direction === 1) {
-            setHeaderLogoVisible(false);
-          }
-        });
-
-        syncLogoForHeroZone();
-        if (getScrollY() >= HERO_SCROLL_MAX) {
-          setHeaderLogoVisible(false);
-        }
-
-        window.addEventListener("resize", syncLogoForHeroZone, { passive: true });
-      }
-
-      const mobileMenu = document.getElementById("mobile-menu");
-      const mobileMenuOpen = document.getElementById("mobile-menu-open");
-      const mobileMenuClose = document.getElementById("mobile-menu-close");
-      const menuContentWrapper = document.getElementById("menu-content-wrapper");
-      const mobileMenuLinksContainer = document.getElementById("mobile-menu-links");
-      if (mobileMenu && mobileMenuOpen && mobileMenuClose && menuContentWrapper) {
-        let mobileMenuOpenFadeTimer = null;
-        let mobileMenuCloseSlideTimer = null;
-
-        function openMobileMenu() {
-          if (mobileMenuCloseSlideTimer !== null) {
-            clearTimeout(mobileMenuCloseSlideTimer);
-            mobileMenuCloseSlideTimer = null;
-          }
-          if (window.lenis && typeof window.lenis.stop === "function") {
-            window.lenis.stop();
-          }
-          document.body.style.overflow = "hidden";
-          mobileMenu.setAttribute("aria-hidden", "false");
-          mobileMenuOpen.setAttribute("aria-expanded", "true");
-          mobileMenu.classList.remove("translate-x-full");
-          mobileMenu.classList.add("translate-x-0", "pointer-events-auto");
-          mobileMenu.classList.remove("pointer-events-none");
-          // iPad/tablet overlay fade + centered card slide
-          mobileMenu.classList.remove("md:opacity-0");
-          mobileMenu.classList.add("md:opacity-100");
-          mobileMenu.classList.remove("md:pointer-events-none");
-          mobileMenu.classList.add("md:pointer-events-auto");
-          menuContentWrapper.classList.remove("md:translate-x-[150%]");
-          menuContentWrapper.classList.add("md:translate-x-0");
-          // Desktop: right sidebar slides in
-          menuContentWrapper.classList.remove("lg:translate-x-full");
-          menuContentWrapper.classList.add("lg:translate-x-0");
-          if (mobileMenuLinksContainer) {
-            const links = mobileMenuLinksContainer.querySelectorAll("a");
-            links.forEach((a) => a.classList.remove("opacity-100"));
-            if (mobileMenuOpenFadeTimer !== null) clearTimeout(mobileMenuOpenFadeTimer);
-            mobileMenuOpenFadeTimer = setTimeout(() => {
-              links.forEach((a) => a.classList.add("opacity-100"));
-            }, 150);
-          } else if (mobileMenuOpenFadeTimer !== null) {
-            clearTimeout(mobileMenuOpenFadeTimer);
-          }
-        }
-
-        function closeMobileMenu() {
-          if (mobileMenuOpenFadeTimer !== null) clearTimeout(mobileMenuOpenFadeTimer);
-          if (mobileMenuCloseSlideTimer !== null) {
-            clearTimeout(mobileMenuCloseSlideTimer);
-          }
-          if (mobileMenuLinksContainer) {
-            mobileMenuLinksContainer.querySelectorAll("a").forEach((a) => a.classList.remove("opacity-100"));
-          }
-          // iPad/tablet overlay fade + centered card slide out
-          mobileMenu.classList.remove("md:opacity-100");
-          mobileMenu.classList.add("md:opacity-0");
-          mobileMenu.classList.remove("md:pointer-events-auto");
-          mobileMenu.classList.add("md:pointer-events-none");
-          menuContentWrapper.classList.remove("md:translate-x-0");
-          menuContentWrapper.classList.add("md:translate-x-[150%]");
-          // Desktop: right sidebar slides out
-          menuContentWrapper.classList.remove("lg:translate-x-0");
-          menuContentWrapper.classList.add("lg:translate-x-full");
-          mobileMenu.classList.remove("translate-x-0", "pointer-events-auto");
-          mobileMenu.classList.add("translate-x-full", "pointer-events-none");
-          mobileMenuCloseSlideTimer = setTimeout(() => {
-            mobileMenuCloseSlideTimer = null;
-            mobileMenu.setAttribute("aria-hidden", "true");
-            mobileMenuOpen.setAttribute("aria-expanded", "false");
-            document.body.style.overflow = "";
-            if (window.lenis && typeof window.lenis.start === "function") {
-              window.lenis.start();
-            }
-          }, 500);
-        }
-
-        window.__isMobileMenuOpen = function () {
-          return mobileMenu.getAttribute("aria-hidden") === "false";
-        };
-
-        // Used by the global anchor click handler to avoid scroll glitches.
-        window.__closeMobileMenuForScroll = function () {
-          document.body.style.overflow = "";
-          if (window.lenis && typeof window.lenis.start === "function") {
-            window.lenis.start();
-          }
-          closeMobileMenu();
-        };
-
-        mobileMenuOpen.addEventListener("click", openMobileMenu);
-        mobileMenuClose.addEventListener("click", closeMobileMenu);
-        mobileMenu.querySelectorAll('a[href^="#"]').forEach((link) => {
-          link.addEventListener("click", () => {
-            const href = link.getAttribute("href");
-            if (!href || href === "#") return;
-            document.body.style.overflow = "";
-            closeMobileMenu();
-          });
-        });
-      }
-    });
-  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>
