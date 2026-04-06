@@ -348,7 +348,7 @@ function initMobileNavigationDrawer() {
 
 /**
  * Parallax y revelados con GSAP + ScrollTrigger (hero, métricas, Quiénes somos,
- * tarjetas de métricas). Las sticky work cards usan solo el rAF (updateStickyWorkCards).
+ * tarjetas de métricas, cabecera Nuestro trabajo). Las sticky work cards usan solo el rAF (updateStickyWorkCards).
  * Depende del puente Lenis ya registrado arriba.
  */
 function initAdvancedAnimations() {
@@ -451,6 +451,29 @@ function initAdvancedAnimations() {
         scrollTrigger: {
           trigger: "#company-details",
           start: "top 70%",
+          toggleActions: "play none none none"
+        }
+      }
+    );
+  }
+
+  // ──────────────────────────────────────────────────────────────────────────
+  // Nuestro trabajo — etiqueta + H2: revelado al entrar en sección
+  // ──────────────────────────────────────────────────────────────────────────
+  const nuestroTrabajoReveals = document.querySelectorAll("#nuestro-trabajo .reveal");
+  if (nuestroTrabajoReveals.length) {
+    gsap.fromTo(
+      nuestroTrabajoReveals,
+      { opacity: 0, y: 30 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        ease: "power2.out",
+        stagger: 0.2,
+        scrollTrigger: {
+          trigger: "#nuestro-trabajo",
+          start: "top 80%",
           toggleActions: "play none none none"
         }
       }
