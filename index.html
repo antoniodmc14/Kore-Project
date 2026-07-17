@@ -32,13 +32,13 @@
   <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
 </head>
 <body id="home" class="m-0 font-sans">
-  <header class="fixed top-0 z-50 h-[90px] w-full bg-transparent px-4" aria-label="Site header">
-    <div class="flex h-full items-center justify-between lg:max-w-[1440px] lg:mx-auto">
+  <header class="fixed top-0 z-50 h-[90px] w-full bg-transparent" aria-label="Site header">
+    <div class="flex h-full w-full items-center justify-between px-4 md:px-12">
       <div class="flex items-center">
         <a href="#home" aria-label="Go to homepage">
           <img
             src="img/Logo_Header_Kore.svg"
-            alt="Aeterna Civis Logo"
+            alt="Kore Logo"
             class="h-6 lg:h-8 w-auto [transition:none]"
           />
         </a>
@@ -59,13 +59,13 @@
 
   <nav
     id="mobile-menu"
-    class="fixed inset-y-0 right-0 z-[100] w-full translate-x-full bg-black/40 backdrop-blur-sm transition-transform duration-500 ease-in-out pointer-events-none group md:fixed md:inset-0 md:bg-black/40 md:backdrop-blur-sm md:flex md:items-center md:justify-center md:p-[36px] md:translate-x-0 md:opacity-0 md:pointer-events-none md:transition-opacity md:duration-500 md:ease-in-out lg:items-stretch lg:justify-end lg:p-0"
+    class="fixed inset-y-0 right-0 z-[100] w-full translate-x-full bg-black/40 backdrop-blur-sm transition-transform duration-500 ease-in-out pointer-events-none group [&.is-menu-open]:translate-x-0 [&.is-menu-open]:pointer-events-auto md:fixed md:inset-0 md:bg-black/40 md:backdrop-blur-sm md:flex md:items-center md:justify-center md:p-[36px] md:translate-x-0 md:opacity-0 md:pointer-events-none md:transition-opacity md:duration-500 md:ease-in-out md:[&.is-menu-open]:opacity-100 md:[&.is-menu-open]:pointer-events-auto lg:items-stretch lg:justify-end lg:p-0"
     aria-hidden="true"
     aria-label="Site navigation menu"
   >
     <div
       id="menu-content-wrapper"
-      class="flex h-full w-full flex-col bg-white px-4 pb-10 pt-[18px] transition-all duration-500 md:relative md:w-full md:max-w-[696px] md:h-full md:bg-white md:rounded-[2px] md:p-[36px] md:shadow-2xl md:opacity-100 md:translate-x-[150%] md:transition-transform md:duration-500 md:ease-in-out lg:h-full lg:w-[600px] lg:max-w-full lg:rounded-none lg:translate-x-full lg:transition-transform lg:duration-500"
+      class="flex h-full w-full flex-col bg-white px-4 pb-10 pt-[18px] transition-all duration-500 md:relative md:w-full md:max-w-[696px] md:h-full md:bg-white md:rounded-[2px] md:p-[36px] md:shadow-2xl md:opacity-100 md:translate-x-[150%] md:transition-transform md:duration-500 md:ease-in-out md:group-[.is-menu-open]:translate-x-0 lg:h-full lg:w-[600px] lg:max-w-full lg:rounded-none lg:translate-x-full lg:transition-transform lg:duration-500 lg:group-[.is-menu-open]:translate-x-0"
     >
       <div class="flex shrink-0 justify-end">
         <button
@@ -80,10 +80,10 @@
       </div>
 
       <div id="mobile-menu-links" class="group/menu mt-10 flex flex-1 flex-col mt-[28px] md:mt-24">
-        <a href="#home" class="mb-6 text-[36px] font-normal leading-tight text-[#000000] md:text-[48px] opacity-0 transition-opacity duration-700 ease-in-out lg:transition-all lg:duration-300 lg:group-hover/menu:text-[#7B7B7B] lg:hover:!text-[#000000] lg:hover:translate-x-4">Home</a>
-        <a href="#quienes-somos" class="mb-6 text-[36px] font-normal leading-tight text-[#000000] md:text-[48px] opacity-0 transition-opacity duration-700 ease-in-out lg:transition-all lg:duration-300 lg:group-hover/menu:text-[#7B7B7B] lg:hover:!text-[#000000] lg:hover:translate-x-4">Quiénes somos</a>
-        <a href="#nuestro-equipo" class="mb-6 text-[36px] font-normal leading-tight text-[#000000] md:text-[48px] opacity-0 transition-opacity duration-700 ease-in-out lg:transition-all lg:duration-300 lg:group-hover/menu:text-[#7B7B7B] lg:hover:!text-[#000000] lg:hover:translate-x-4">Nuestro equipo</a>
-        <a href="#nuestro-trabajo" class="mb-6 text-[36px] font-normal leading-tight text-[#000000] md:text-[48px] opacity-0 transition-opacity duration-700 ease-in-out lg:transition-all lg:duration-300 lg:group-hover/menu:text-[#7B7B7B] lg:hover:!text-[#000000] lg:hover:translate-x-4">Nuestro trabajo</a>
+        <a href="#home" class="mb-6 text-[36px] font-normal leading-tight text-[#000000] md:text-[48px] opacity-0 transition-opacity duration-700 ease-in-out group-[.is-menu-open]:opacity-100 group-[.is-menu-open]:delay-150 lg:transition-all lg:duration-300 lg:group-hover/menu:text-[#7B7B7B] lg:hover:!text-[#000000] lg:hover:translate-x-4">Home</a>
+        <a href="#quienes-somos" class="mb-6 text-[36px] font-normal leading-tight text-[#000000] md:text-[48px] opacity-0 transition-opacity duration-700 ease-in-out group-[.is-menu-open]:opacity-100 group-[.is-menu-open]:delay-150 lg:transition-all lg:duration-300 lg:group-hover/menu:text-[#7B7B7B] lg:hover:!text-[#000000] lg:hover:translate-x-4">Quiénes somos</a>
+        <a href="#nuestro-equipo" class="mb-6 text-[36px] font-normal leading-tight text-[#000000] md:text-[48px] opacity-0 transition-opacity duration-700 ease-in-out group-[.is-menu-open]:opacity-100 group-[.is-menu-open]:delay-150 lg:transition-all lg:duration-300 lg:group-hover/menu:text-[#7B7B7B] lg:hover:!text-[#000000] lg:hover:translate-x-4">Nuestro equipo</a>
+        <a href="#nuestro-trabajo" class="mb-6 text-[36px] font-normal leading-tight text-[#000000] md:text-[48px] opacity-0 transition-opacity duration-700 ease-in-out group-[.is-menu-open]:opacity-100 group-[.is-menu-open]:delay-150 lg:transition-all lg:duration-300 lg:group-hover/menu:text-[#7B7B7B] lg:hover:!text-[#000000] lg:hover:translate-x-4">Nuestro trabajo</a>
       </div>
 
       <div class="mt-auto grid grid-cols-2 gap-x-2 gap-y-2 md:max-w-[300px] md:gap-x-2">
@@ -95,24 +95,24 @@
     </div>
   </nav>
 
-  <section id="hero" class="relative h-screen" aria-labelledby="hero-title">
+  <section id="hero" class="relative min-h-[100svh] overflow-hidden" aria-labelledby="hero-title">
     <img
       src="img/Aeterna_Hero_02.png"
       alt="Aeterna Civis hero background"
-      class="h-full w-full object-cover"
+      class="absolute inset-0 block w-full h-[100svh] max-h-full object-cover"
     />
     <div class="absolute inset-0 z-10">
       <div class="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-black/50 to-transparent"></div>
-      <div class="relative flex h-full flex-col justify-end items-start pb-20 lg:pb-12">
-        <div class="mx-auto w-full px-4 md:max-w-[768px] md:px-[36px] lg:max-w-[1440px] lg:mx-auto lg:px-1 lg:relative">
+      <div class="relative flex min-h-[100svh] flex-col justify-end items-start pb-6 lg:pb-12 lg:pt-[110px]">
+        <div class="relative w-full px-4 md:px-[36px] lg:grid lg:grid-cols-12 lg:items-start lg:px-12 2xl:max-w-[2000px] mx-auto">
           <h1
             id="hero-title"
-            class="text-[40px] font-medium leading-[1.05] text-white opacity-0 animate-fadeInUp [animation-delay:200ms] md:w-[350px] md:text-[62px] md:leading-[1.02] lg:text-[65px] lg:w-[380px] lg:mb-12"
+            class="max-w-xl text-[40px] font-medium leading-[1.05] text-white opacity-0 animate-fadeInUp [animation-delay:200ms] md:w-[350px] md:text-[62px] md:leading-[1.02] lg:col-span-7 lg:row-start-1 lg:w-auto lg:max-w-2xl lg:text-[clamp(62px,4vw,65px)]"
           >
             Construyendo el horizonte del mañana
           </h1>
           <p
-            class="mt-6 max-w-[340px] text-[16px] lg:text[19px] font-normal leading-[1.25] text-white opacity-0 animate-fadeInUp [animation-delay:500ms] md:ml-auto md:mt-10 md:w-[320px] md:max-w-none md:text-left lg:text-[18px] lg:w-[490px]"
+            class="mt-6 max-w-[340px] text-[16px] font-normal leading-[1.25] text-white opacity-0 animate-fadeInUp [animation-delay:500ms] md:ml-auto md:mt-10 md:w-[320px] md:max-w-none md:text-left lg:col-span-4 lg:col-start-9 lg:row-start-2 lg:mt-8 lg:ml-0 lg:w-auto lg:max-w-xl lg:text-[17px] 2xl:text-[19px]"
           >
             Aliados estratégicos de instituciones y entidades globales en el desarrollo de activos de gran escala, garantizando la excelencia operativa en entornos de máxima exigencia.
           </p>
@@ -121,31 +121,32 @@
     </div>
   </section>
 
-  <section id="quienes-somos" class="scroll-mt-24 bg-white pt-20 pb-40 lg:pb-64" aria-labelledby="quienes-somos-heading">
-    <div class="mx-auto w-full px-4 md:max-w-[768px] md:px-[36px] lg:max-w-[1440px] lg:mx-auto lg:px-[24px]">
+  <section id="quienes-somos" class="scroll-mt-24 overflow-x-clip bg-white pt-20 pb-40 lg:pb-64" aria-labelledby="quienes-somos-heading">
+    <div class="mx-auto w-full px-4 md:max-w-[768px] md:px-[36px] lg:max-w-none lg:px-12 2xl:max-w-[2000px]">
       <div class="flex items-center gap-2 mb-8">
         <div class="w-[9px] h-[9px] bg-[#7B7B7B]" aria-hidden="true"></div>
         <span class="text-[16px] font-normal text-[#7B7B7B]">Quiénes somos</span>
       </div>
-      <div class="lg:flex lg:flex-row lg:justify-between lg:items-start lg:gap-24 lg:mt-16">
-        <div class="lg:w-[55%] lg:min-w-[55%]">
+      <div class="lg:grid lg:grid-cols-12 lg:items-start lg:gap-8 lg:mt-16 xl:gap-16 2xl:gap-24">
+        <div class="lg:col-span-7 lg:row-start-1">
           <h2 id="quienes-somos-heading" class="text-[35px] font-normal leading-[1.10] text-black lg:text-[48px] lg:leading-[1.1]">
             Desde 2016, proyectamos infraestructuras de gran escala en simbiosis con el entorno. Unimos
             ingeniería de vanguardia y rigor técnico para erigir hitos estructurales que definen el legado
             civil de las próximas generaciones.
           </h2>
         </div>
-        <div class="lg:w-[40%] lg:min-w-[40%] lg:flex lg:flex-col-reverse lg:gap-2 lg:mt-[450px]">
+        <div class="lg:col-span-4 lg:col-start-9 lg:row-start-2 lg:self-start lg:mt-8 lg:flex lg:flex-col-reverse lg:gap-2">
           <div>
-            <p class="mt-8 text-[16px] font-normal leading-[1.25] text-[#7B7B7B] lg:mt-0">
+            <p class="mt-8 w-full text-[16px] font-normal leading-[1.25] text-[#7B7B7B] lg:mt-0 lg:max-w-[580px]">
               Articulamos soluciones transversales para los desafíos estructurales más complejos del sector
               público y privado, garantizando una excelencia operativa que perdura en el tiempo.
             </p>
           </div>
-          <div class="mb-32 mt-12 flex flex-col gap-4 lg:mb-8 lg:mt-0">
+          <div class="mb-32 mt-12 flex flex-col gap-4 lg:mb-8 lg:mt-0 lg:items-start">
             <a
-              href="#"
-              class="group flex h-[120px] w-full items-end justify-between rounded-[2px] border border-white/10 bg-[#809DBB]/30 px-4 pb-4 text-[16px] font-normal text-[#7B7B7B] backdrop-blur-[11px] backdrop-saturate-[150%]"
+              href="javascript:void(0)"
+              onclick="event.preventDefault();"
+              class="group flex h-[120px] w-full items-end justify-between rounded-[2px] border border-white/10 bg-[#809DBB]/30 px-4 pb-4 text-[16px] font-normal text-[#7B7B7B] backdrop-blur-[11px] backdrop-saturate-[150%] lg:max-w-[580px]"
             >
               <span
                 class="inline-block transition-transform transition-colors duration-300 ease-in-out group-hover:text-black group-hover:translate-x-2"
@@ -159,7 +160,7 @@
             </a>
             <a
               href="#nuestro-trabajo"
-              class="group flex h-[120px] w-full items-end justify-between rounded-[2px] border border-white/10 bg-[#809DBB]/30 px-4 pb-4 text-[16px] font-normal text-[#7B7B7B] backdrop-blur-[11px] backdrop-saturate-[150%]"
+              class="group flex h-[120px] w-full items-end justify-between rounded-[2px] border border-white/10 bg-[#809DBB]/30 px-4 pb-4 text-[16px] font-normal text-[#7B7B7B] backdrop-blur-[11px] backdrop-saturate-[150%] lg:max-w-[580px]"
             >
               <span
                 class="inline-block transition-transform transition-colors duration-300 ease-in-out group-hover:text-black group-hover:translate-x-2"
@@ -186,9 +187,9 @@
     <div
       class="absolute inset-0 z-10 flex min-h-0 items-center justify-center lg:h-full lg:w-full lg:flex lg:items-center lg:justify-center [&>div]:min-w-0 [&>div]:w-full"
     >
-      <div class="flex flex-nowrap gap-8 overflow-x-auto px-4 pb-10 no-scrollbar lg:flex-wrap lg:items-center lg:justify-center lg:gap-8 lg:overflow-visible lg:px-0 lg:pb-0">
+      <div class="flex flex-nowrap gap-8 overflow-x-auto px-4 pb-10 no-scrollbar lg:grid lg:grid-cols-2 lg:items-center lg:gap-6 lg:overflow-visible lg:px-12 lg:pb-0 xl:grid-cols-4 xl:gap-8 w-full 2xl:max-w-[2000px] 2xl:mx-auto">
         <div
-          class="flex h-[320px] min-w-[280px] shrink-0 flex-col justify-between rounded-[2px] border border-white/10 bg-[#809DBB]/30 p-6 backdrop-blur-[11px] backdrop-saturate-[150%] lg:w-[300px] lg:min-w-[300px]"
+          class="mx-auto flex min-h-[320px] min-w-[280px] max-w-[450px] shrink-0 flex-col justify-between rounded-[2px] border border-white/10 bg-[#809DBB]/30 p-6 backdrop-blur-[11px] backdrop-saturate-[150%] lg:w-full lg:min-w-0"
         >
           <p class="text-[40px] font-normal text-white">2016</p>
           <div>
@@ -197,7 +198,7 @@
           </div>
         </div>
         <div
-          class="flex h-[320px] min-w-[280px] shrink-0 flex-col justify-between rounded-[2px] border border-white/10 bg-[#809DBB]/30 p-6 backdrop-blur-[11px] backdrop-saturate-[150%] lg:w-[300px] lg:min-w-[300px]"
+          class="mx-auto flex min-h-[320px] min-w-[280px] max-w-[450px] shrink-0 flex-col justify-between rounded-[2px] border border-white/10 bg-[#809DBB]/30 p-6 backdrop-blur-[11px] backdrop-saturate-[150%] lg:w-full lg:min-w-0"
         >
           <p class="text-[40px] font-normal text-white">
             +60.000 <span class="text-[20px] text-white/70 align-top ml-1">m²</span>
@@ -208,7 +209,7 @@
           </div>
         </div>
         <div
-          class="flex h-[320px] min-w-[280px] shrink-0 flex-col justify-between rounded-[2px] border border-white/10 bg-[#809DBB]/30 p-6 backdrop-blur-[11px] backdrop-saturate-[150%] lg:w-[300px] lg:min-w-[300px]"
+          class="mx-auto flex min-h-[320px] min-w-[280px] max-w-[450px] shrink-0 flex-col justify-between rounded-[2px] border border-white/10 bg-[#809DBB]/30 p-6 backdrop-blur-[11px] backdrop-saturate-[150%] lg:w-full lg:min-w-0"
         >
           <p class="text-[40px] font-normal text-white">+30</p>
           <div>
@@ -217,7 +218,7 @@
           </div>
         </div>
         <div
-          class="flex h-[320px] min-w-[280px] shrink-0 flex-col justify-between rounded-[2px] border border-white/10 bg-[#809DBB]/30 p-6 backdrop-blur-[11px] backdrop-saturate-[150%] lg:w-[300px] lg:min-w-[300px]"
+          class="mx-auto flex min-h-[320px] min-w-[280px] max-w-[450px] shrink-0 flex-col justify-between rounded-[2px] border border-white/10 bg-[#809DBB]/30 p-6 backdrop-blur-[11px] backdrop-saturate-[150%] lg:w-full lg:min-w-0"
         >
           <p class="text-[40px] font-normal text-white">+10</p>
           <div>
@@ -230,8 +231,8 @@
   </section>
 
   <section id="nuestro-equipo" class="scroll-mt-24 bg-white py-20 mb-32" aria-labelledby="nuestro-equipo-heading">
-    <div class="mx-auto w-full px-4 md:max-w-[768px] md:px-[36px] lg:max-w-[1440px] lg:mx-auto lg:px-[24px]">
-      <div class="lg:mt-16 lg:w-[55%] lg:min-w-[55%]">
+    <div class="mx-auto w-full px-4 md:max-w-[768px] md:px-[36px] lg:max-w-none lg:px-12 2xl:max-w-[2000px]">
+      <div class="lg:mt-16 lg:w-full lg:max-w-[710px]">
         <div class="text-left lg:mb-8">
           <div class="flex items-center gap-2 mb-8">
             <div class="w-[9px] h-[9px] bg-[#7B7B7B]" aria-hidden="true"></div>
@@ -305,7 +306,7 @@
                     <img
                       src="img/Aeterna_Team_01.png"
                       alt="Adrián Recalde"
-                      class="w-[310px] h-[380px] object-cover rounded-[2px] mx-auto opacity-0 translate-y-2 transition-all duration-700 delay-150 [transition-timing-function:cubic-bezier(0.4,0,0.2,1)] group-data-[state=open]:translate-y-0 group-data-[state=open]:opacity-100"
+                      class="w-[310px] h-[390px] object-cover rounded-[2px] mx-auto opacity-0 translate-y-2 transition-all duration-700 delay-150 [transition-timing-function:cubic-bezier(0.4,0,0.2,1)] group-data-[state=open]:translate-y-0 group-data-[state=open]:opacity-100"
                     />
                   </div>
                 </div>
@@ -337,7 +338,7 @@
                     <img
                       src="img/Aeterna_Team_02.png"
                       alt="Marcos Valdivieso"
-                      class="w-[310px] h-[380px] object-cover rounded-[2px] mx-auto opacity-0 translate-y-2 transition-all duration-700 delay-150 [transition-timing-function:cubic-bezier(0.4,0,0.2,1)] group-data-[state=open]:translate-y-0 group-data-[state=open]:opacity-100"
+                      class="w-[310px] h-[390px] object-cover rounded-[2px] mx-auto opacity-0 translate-y-2 transition-all duration-700 delay-150 [transition-timing-function:cubic-bezier(0.4,0,0.2,1)] group-data-[state=open]:translate-y-0 group-data-[state=open]:opacity-100"
                     />
                   </div>
                 </div>
@@ -369,7 +370,7 @@
                     <img
                       src="img/Aeterna_Team_03.png"
                       alt="Valeria Hierro"
-                      class="w-[310px] h-[380px] object-cover rounded-[2px] mx-auto opacity-0 translate-y-2 transition-all duration-700 delay-150 [transition-timing-function:cubic-bezier(0.4,0,0.2,1)] group-data-[state=open]:translate-y-0 group-data-[state=open]:opacity-100"
+                      class="w-[310px] h-[390px] object-cover rounded-[2px] mx-auto opacity-0 translate-y-2 transition-all duration-700 delay-150 [transition-timing-function:cubic-bezier(0.4,0,0.2,1)] group-data-[state=open]:translate-y-0 group-data-[state=open]:opacity-100"
                     />
                   </div>
                 </div>
@@ -401,7 +402,7 @@
                     <img
                       src="img/Aeterna_Team_04.png"
                       alt="Mateo Iturbe"
-                      class="w-[310px] h-[380px] object-cover rounded-[2px] mx-auto opacity-0 translate-y-2 transition-all duration-700 delay-150 [transition-timing-function:cubic-bezier(0.4,0,0.2,1)] group-data-[state=open]:translate-y-0 group-data-[state=open]:opacity-100"
+                      class="w-[310px] h-[390px] object-cover rounded-[2px] mx-auto opacity-0 translate-y-2 transition-all duration-700 delay-150 [transition-timing-function:cubic-bezier(0.4,0,0.2,1)] group-data-[state=open]:translate-y-0 group-data-[state=open]:opacity-100"
                     />
                   </div>
                 </div>
@@ -419,7 +420,7 @@
 
   <section id="nuestro-trabajo" class="scroll-mt-24 bg-[#191919]" aria-labelledby="nuestro-trabajo-heading">
     <div class="pt-32 lg:pt-48">
-      <div class="mx-auto w-full px-4 md:max-w-[768px] md:px-[36px] lg:max-w-[1440px] lg:mx-auto lg:px-12">
+      <div class="mx-auto w-full px-4 md:max-w-[768px] md:px-[36px] lg:max-w-none lg:px-12 2xl:max-w-[2000px]">
         <div class="reveal mb-10 flex items-center justify-start gap-2 text-left">
           <div class="w-[9px] h-[9px] bg-[#7B7B7B]" aria-hidden="true"></div>
           <span class="text-[16px] font-normal text-[#7B7B7B]">Nuestro trabajo</span>
@@ -434,23 +435,23 @@
 
     <div id="trabajo-sticky-stack" class="mt-0 bg-[#191919]">
       <article class="sticky top-0 z-10 h-[500px]">
-        <div class="mx-auto w-full px-4 md:max-w-[768px] md:px-[36px] lg:max-w-[1440px] lg:mx-auto lg:px-12">
+        <div class="mx-auto w-full px-4 md:max-w-[768px] md:px-[36px] lg:max-w-none lg:px-12 2xl:max-w-[2000px]">
           <div class="sticky-card-inner relative box-border h-[500px] bg-[#191919] py-6 [will-change:transform,filter,opacity]">
             <div
-              class="work-card-content relative grid h-[calc(500px-3rem)] grid-cols-1 grid-rows-[auto_minmax(0,1fr)] font-sans lg:grid-cols-[1fr_1.5fr_1fr] lg:grid-rows-1 lg:items-center lg:gap-16"
+              class="work-card-content relative grid h-[calc(500px-3rem)] grid-cols-1 grid-rows-[auto_minmax(0,1fr)] font-sans lg:grid-cols-12 lg:grid-rows-1 lg:items-center lg:gap-16"
             >
               <p
-                class="mb-12 w-full self-start text-left text-[26px] font-normal text-white md:text-[30px] lg:self-center lg:mb-0 lg:col-start-1 lg:text-[34px] lg:leading-[1.3]"
+                class="mb-12 w-full self-start text-left text-[26px] font-normal text-white md:text-[30px] lg:col-span-3 lg:col-start-1 lg:self-center lg:mb-0 lg:text-[34px] lg:leading-[1.3]"
               >
                 Planificación Estratégica
               </p>
               <p
-                class="max-w-prose w-full self-start overflow-auto text-left text-[18px] font-normal leading-[1.5] text-white md:text-[18px] lg:self-center lg:overflow-visible lg:col-start-2 lg:text-[21px] lg:leading-[1.3]"
+                class="max-w-prose w-full self-start overflow-auto text-left text-[18px] font-normal leading-[1.5] text-white md:text-[18px] lg:col-span-5 lg:col-start-5 lg:self-center lg:overflow-visible lg:text-[21px] lg:leading-[1.3]"
               >
                 Soluciones diseñadas para soportar las exigencias de la movilidad moderna, la gestión de recursos hídricos y la conectividad territorial, garantizando la resiliencia y estabilidad de los activos críticos del mañana.
               </p>
               <span
-                class="flex justify-end w-full text-[130px] font-normal md:text-[170px] leading-none text-white font-sans lg:col-start-3 lg:flex lg:items-center lg:justify-end"
+                class="flex justify-end w-full text-[130px] font-normal md:text-[170px] leading-none text-white font-sans lg:col-span-3 lg:col-start-10 lg:flex lg:items-center lg:justify-end"
                 aria-hidden="true"
               >01</span>
             </div>
@@ -458,25 +459,25 @@
         </div>
       </article>
       <article class="sticky top-0 z-20 h-[500px]">
-        <div class="mx-auto w-full px-4 md:max-w-[768px] md:px-[36px] lg:max-w-[1440px] lg:mx-auto lg:px-12">
+        <div class="mx-auto w-full px-4 md:max-w-[768px] md:px-[36px] lg:max-w-none lg:px-12 2xl:max-w-[2000px]">
           <div
             class="sticky-card-inner relative box-border h-[500px] border-t border-white/10 bg-[#191919] py-6 [will-change:transform,filter,opacity]"
           >
             <div
-              class="work-card-content relative grid h-[calc(500px-3rem)] grid-cols-1 grid-rows-[auto_minmax(0,1fr)] font-sans lg:grid-cols-[1fr_1.5fr_1fr] lg:grid-rows-1 lg:items-center lg:gap-16"
+              class="work-card-content relative grid h-[calc(500px-3rem)] grid-cols-1 grid-rows-[auto_minmax(0,1fr)] font-sans lg:grid-cols-12 lg:grid-rows-1 lg:items-center lg:gap-16"
             >
               <p
-                class="mb-12 w-full self-start text-left text-[26px] font-normal text-white md:text-[30px] lg:self-center lg:mb-0 lg:col-start-1 lg:text-[34px] lg:leading-[1.3]"
+                class="mb-12 w-full self-start text-left text-[26px] font-normal text-white md:text-[30px] lg:col-span-3 lg:col-start-1 lg:self-center lg:mb-0 lg:text-[34px] lg:leading-[1.3]"
               >
                 Coordinación y Ejecución
               </p>
               <p
-                class="max-w-prose w-full self-start overflow-auto text-left text-[18px] font-normal leading-[1.5] text-white md:text-[18px] lg:self-center lg:overflow-visible lg:col-start-2 lg:text-[21px] lg:leading-[1.3]"
+                class="max-w-prose w-full self-start overflow-auto text-left text-[18px] font-normal leading-[1.5] text-white md:text-[18px] lg:col-span-5 lg:col-start-5 lg:self-center lg:overflow-visible lg:text-[21px] lg:leading-[1.3]"
               >
                 Gestión orientada a garantizar los plazos de entrega y la optimización de recursos, asegurando que cada activo institucional cumpla con los estándares de calidad y seguridad más exigentes.
               </p>
               <span
-                class="flex justify-end w-full text-[130px] font-normal md:text-[170px] leading-none text-white font-sans lg:col-start-3 lg:flex lg:items-center lg:justify-end"
+                class="flex justify-end w-full text-[130px] font-normal md:text-[170px] leading-none text-white font-sans lg:col-span-3 lg:col-start-10 lg:flex lg:items-center lg:justify-end"
                 aria-hidden="true"
               >02</span>
             </div>
@@ -484,25 +485,25 @@
         </div>
       </article>
       <article class="sticky top-0 z-30 h-[500px]">
-        <div class="mx-auto w-full px-4 md:max-w-[768px] md:px-[36px] lg:max-w-[1440px] lg:mx-auto lg:px-12">
+        <div class="mx-auto w-full px-4 md:max-w-[768px] md:px-[36px] lg:max-w-none lg:px-12 2xl:max-w-[2000px]">
           <div
             class="sticky-card-inner relative box-border h-[500px] border-b border-t border-white/10 bg-[#191919] py-6 [will-change:transform,filter,opacity]"
           >
             <div
-              class="work-card-content relative grid h-[calc(500px-3rem)] grid-cols-1 grid-rows-[auto_minmax(0,1fr)] font-sans lg:grid-cols-[1fr_1.5fr_1fr] lg:grid-rows-1 lg:items-center lg:gap-16"
+              class="work-card-content relative grid h-[calc(500px-3rem)] grid-cols-1 grid-rows-[auto_minmax(0,1fr)] font-sans lg:grid-cols-12 lg:grid-rows-1 lg:items-center lg:gap-16"
             >
               <p
-                class="mb-12 w-full self-start text-left text-[26px] font-normal text-white md:text-[30px] lg:self-center lg:mb-0 lg:col-start-1 lg:text-[34px] lg:leading-[1.3]"
+                class="mb-12 w-full self-start text-left text-[26px] font-normal text-white md:text-[30px] lg:col-span-3 lg:col-start-1 lg:self-center lg:mb-0 lg:text-[34px] lg:leading-[1.3]"
               >
                 Legado Sostenible
               </p>
               <p
-                class="max-w-prose w-full self-start overflow-auto text-left text-[18px] font-normal leading-[1.5] text-white md:text-[18px] lg:self-center lg:overflow-visible lg:col-start-2 lg:text-[21px] lg:leading-[1.3]"
+                class="max-w-prose w-full self-start overflow-auto text-left text-[18px] font-normal leading-[1.5] text-white md:text-[18px] lg:col-span-5 lg:col-start-5 lg:self-center lg:overflow-visible lg:text-[21px] lg:leading-[1.3]"
               >
                 Desarrollo enfocado en mitigar el impacto ambiental y maximizar la resiliencia del entorno, transformando la obra civil en un legado responsable que potencia la biodiversidad y el desarrollo social sostenible.
               </p>
               <span
-                class="flex justify-end w-full text-[130px] font-normal md:text-[170px] leading-none text-white font-sans lg:col-start-3 lg:flex lg:items-center lg:justify-end"
+                class="flex justify-end w-full text-[130px] font-normal md:text-[170px] leading-none text-white font-sans lg:col-span-3 lg:col-start-10 lg:flex lg:items-center lg:justify-end"
                 aria-hidden="true"
               >03</span>
             </div>
@@ -518,11 +519,11 @@
     class="relative m-0 mt-0 flex h-auto flex-col overflow-hidden bg-[#F6FAFF] font-sans"
     aria-label="Site footer"
   >
-    <div class="relative z-10 w-full px-4 pb-10 pt-20 lg:max-w-[1440px] lg:mx-auto lg:px-12 lg:py-24">
-      <div class="flex w-full flex-col items-stretch lg:grid lg:grid-cols-[2fr_1fr_auto] lg:gap-12 lg:items-start">
-        <div class="w-full md:max-w-[696px] md:mx-auto lg:mx-0 lg:col-span-1 lg:max-w-[420px]">
+    <div class="relative z-10 w-full px-4 pb-10 pt-20 lg:px-12 lg:py-24 2xl:max-w-[2000px] mx-auto">
+      <div class="flex w-full flex-col items-stretch lg:flex-row lg:justify-between lg:items-start">
+        <div class="w-full md:max-w-[696px] md:mx-auto lg:mx-0 lg:w-[35%] lg:max-w-[500px]">
           <div
-            class="flex h-[320px] w-full flex-col rounded-[2px] border border-white/10 bg-[#B0C0D1] px-6 py-8 backdrop-blur-[11px] backdrop-saturate-[150%] md:px-12 md:py-10 lg:h-[220px] lg:py-6 lg:px-6"
+            class="flex h-[320px] w-full flex-col rounded-[2px] border border-white/10 bg-[#B0C0D1] px-6 py-8 backdrop-blur-[11px] backdrop-saturate-[150%] md:px-12 md:py-10 lg:h-auto lg:min-h-[260px] lg:py-6 lg:px-6 2xl:min-h-[220px]"
           >
             <p class="mb-4 text-[25px] font-normal text-white lg:mb-2">Contacta con nosotros</p>
             <p class="text-[16px] font-normal leading-[1.25] text-white lg:text-[16px] lg:leading-snug">
@@ -530,7 +531,8 @@
             </p>
             <div class="mt-auto pt-6">
               <a
-                href="#"
+                href="javascript:void(0)"
+                onclick="event.preventDefault();"
                 class="group flex w-full items-center justify-between rounded-[2px] bg-white px-4 py-7 text-[16px] text-[#809DBB] transition-colors duration-300 hover:bg-[#f3f3f3] lg:h-14 lg:py-0"
               >
                 <span
@@ -549,22 +551,22 @@
           </div>
         </div>
 
-        <div class="mt-28 mr-auto max-w-[300px] min-w-0 grid grid-cols-2 gap-16 md:mr-0 md:max-w-max md:ml-[calc((100%-696px)/2)] lg:mt-0 lg:col-start-3 lg:col-span-1 lg:flex lg:justify-end lg:gap-16">
-          <div class="min-w-0 text-left">
-            <h3 class="mb-6 text-[18px] font-medium text-[#525252]">Navegación</h3>
-            <nav class="flex flex-col gap-y-4" aria-label="Navegación principal">
-              <a href="#home" class="text-[16px] font-normal text-[#898989]">Home</a>
-              <a href="#quienes-somos" class="text-[16px] font-normal text-[#898989]">Quienes somos</a>
-              <a href="#nuestro-trabajo" class="text-[16px] font-normal text-[#898989]">Nuestro trabajo</a>
-              <a href="#nuestro-equipo" class="text-[16px] font-normal text-[#898989]">Nuestro equipo</a>
+        <div class="mt-28 mr-auto max-w-[300px] min-w-0 grid grid-cols-2 gap-16 md:mr-0 md:max-w-max md:ml-[calc((100%-696px)/2)] lg:mt-0 lg:max-w-none lg:flex lg:flex-row lg:gap-24 lg:text-right">
+          <div class="min-w-0 text-left lg:flex lg:flex-col lg:items-start">
+            <h3 class="mb-4 text-[18px] font-medium text-[#525252]">Navegación</h3>
+            <nav class="flex flex-col items-start gap-y-4" aria-label="Navegación principal">
+              <a href="#home" class="w-fit text-[16px] font-normal text-[#898989]">Home</a>
+              <a href="#quienes-somos" class="w-fit text-[16px] font-normal text-[#898989]">Quienes somos</a>
+              <a href="#nuestro-trabajo" class="w-fit text-[16px] font-normal text-[#898989]">Nuestro trabajo</a>
+              <a href="#nuestro-equipo" class="w-fit text-[16px] font-normal text-[#898989]">Nuestro equipo</a>
             </nav>
           </div>
 
-          <div class="min-w-0 text-left">
-            <h3 class="mb-6 text-[16px] font-medium text-[#525252]">Links</h3>
-            <nav class="flex flex-col gap-y-4" aria-label="Redes sociales">
-              <a href="#" class="text-[16px] font-normal text-[#898989]">Linkedin</a>
-              <a href="#" class="text-[16px] font-normal text-[#898989]">Instagram</a>
+          <div class="min-w-0 text-left lg:flex lg:flex-col lg:items-start">
+            <h3 class="mb-4 text-[18px] font-medium text-[#525252]">Links</h3>
+            <nav class="flex flex-col items-start gap-y-4" aria-label="Redes sociales">
+              <a href="javascript:void(0)" onclick="event.preventDefault();" class="w-fit text-[16px] font-normal text-[#898989]">Linkedin</a>
+              <a href="javascript:void(0)" onclick="event.preventDefault();" class="w-fit text-[16px] font-normal text-[#898989]">Instagram</a>
             </nav>
           </div>
         </div>
@@ -572,7 +574,7 @@
     </div>
 
     <div class="relative z-10 w-full border-t border-white/10">
-      <div class="flex w-full items-center justify-between gap-6 px-4 py-6 lg:max-w-[1440px] lg:mx-auto lg:px-12">
+      <div class="flex w-full items-center justify-between gap-6 px-4 py-6 md:px-12 2xl:max-w-[2000px] mx-auto">
         <img src="img/Logo_Header_Kore_Black.svg" alt="Kore" class="h-5 w-auto" />
         <p class="whitespace-nowrap text-[12px] font-light text-[#747474]/60">© 2026 All Rights Reserved.</p>
       </div>

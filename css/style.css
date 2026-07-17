@@ -62,6 +62,12 @@ body {
   scrollbar-width: none;
 }
 
+/* Seatbelt eje X: clip (no hidden) para no crear scroll container ni romper
+   position: sticky (#trabajo-sticky-stack), GSAP ScrollTrigger ni Lenis. */
+body {
+  overflow-x: clip;
+}
+
 html::-webkit-scrollbar,
 body::-webkit-scrollbar,
 *::-webkit-scrollbar {

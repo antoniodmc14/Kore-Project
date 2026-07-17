@@ -96,7 +96,7 @@ function updateStickyWorkCards() {
 
   const stickyArticles = stack.querySelectorAll("article.sticky");
   stickyArticles.forEach((article, index) => {
-    const inner = article.querySelector(":scope > .sticky-card-inner");
+    const inner = article.querySelector(".sticky-card-inner");
     if (!inner) return;
 
     const cardContent = inner.querySelector(".work-card-content");
@@ -243,93 +243,64 @@ function initMobileNavigationDrawer() {
   const navigationPanel = document.getElementById("mobile-menu");
   const mobileMenuOpenButton = document.getElementById("mobile-menu-open");
   const mobileMenuCloseButton = document.getElementById("mobile-menu-close");
-  const menuContentWrapper = document.getElementById("menu-content-wrapper");
-  const mobileMenuLinksContainer = document.getElementById("mobile-menu-links");
 
-  if (!navigationPanel || !mobileMenuOpenButton || !mobileMenuCloseButton || !menuContentWrapper) {
+  if (!navigationPanel || !mobileMenuOpenButton || !mobileMenuCloseButton) {
     return;
   }
 
-  let menuLinksFadeTimerId = null;
   let menuCloseAnimationTimerId = null;
+  const MENU_TRANSITION_DURATION_MS = 500;
 
-  function openMobileMenu() {
+  function clearMenuCloseTimer() {
     if (menuCloseAnimationTimerId !== null) {
       clearTimeout(menuCloseAnimationTimerId);
       menuCloseAnimationTimerId = null;
     }
-    if (window.lenis && typeof window.lenis.stop === "function") {
-      window.lenis.stop();
-    }
-    document.body.style.overflow = "hidden";
-    navigationPanel.setAttribute("aria-hidden", "false");
-    mobileMenuOpenButton.setAttribute("aria-expanded", "true");
-    navigationPanel.classList.remove("translate-x-full");
-    navigationPanel.classList.add("translate-x-0", "pointer-events-auto");
-    navigationPanel.classList.remove("pointer-events-none");
-    navigationPanel.classList.remove("md:opacity-0");
-    navigationPanel.classList.add("md:opacity-100");
-    navigationPanel.classList.remove("md:pointer-events-none");
-    navigationPanel.classList.add("md:pointer-events-auto");
-    menuContentWrapper.classList.remove("md:translate-x-[150%]");
-    menuContentWrapper.classList.add("md:translate-x-0");
-    menuContentWrapper.classList.remove("lg:translate-x-full");
-    menuContentWrapper.classList.add("lg:translate-x-0");
-    if (mobileMenuLinksContainer) {
-      const navLinks = mobileMenuLinksContainer.querySelectorAll("a");
-      navLinks.forEach((linkElement) => linkElement.classList.remove("opacity-100"));
-      if (menuLinksFadeTimerId !== null) clearTimeout(menuLinksFadeTimerId);
-      menuLinksFadeTimerId = setTimeout(() => {
-        navLinks.forEach((linkElement) => linkElement.classList.add("opacity-100"));
-      }, 150);
-    } else if (menuLinksFadeTimerId !== null) {
-      clearTimeout(menuLinksFadeTimerId);
-    }
   }
 
-  function closeMobileMenu() {
-    if (menuLinksFadeTimerId !== null) clearTimeout(menuLinksFadeTimerId);
-    if (menuCloseAnimationTimerId !== null) {
-      clearTimeout(menuCloseAnimationTimerId);
-    }
-    if (mobileMenuLinksContainer) {
-      mobileMenuLinksContainer.querySelectorAll("a").forEach((linkElement) => {
-        linkElement.classList.remove("opacity-100");
-      });
-    }
-    navigationPanel.classList.remove("md:opacity-100");
-    navigationPanel.classList.add("md:opacity-0");
-    navigationPanel.classList.remove("md:pointer-events-auto");
-    navigationPanel.classList.add("md:pointer-events-none");
-    menuContentWrapper.classList.remove("md:translate-x-0");
-    menuContentWrapper.classList.add("md:translate-x-[150%]");
-    menuContentWrapper.classList.remove("lg:translate-x-0");
-    menuContentWrapper.classList.add("lg:translate-x-full");
-    navigationPanel.classList.remove("translate-x-0", "pointer-events-auto");
-    navigationPanel.classList.add("translate-x-full", "pointer-events-none");
-    menuCloseAnimationTimerId = setTimeout(() => {
-      menuCloseAnimationTimerId = null;
-      navigationPanel.setAttribute("aria-hidden", "true");
-      mobileMenuOpenButton.setAttribute("aria-expanded", "false");
-      document.body.style.overflow = "";
-      if (window.lenis && typeof window.lenis.start === "function") {
-        window.lenis.start();
-      }
-    }, 500);
-  }
-
-  /** @returns {boolean} */
-  window.__isMobileMenuOpen = function __isMobileMenuOpen() {
-    return navigationPanel.getAttribute("aria-hidden") === "false";
-  };
-
-  /** Closes the menu and restarts Lenis; used before programmatic scroll from anchors. */
-  window.__closeMobileMenuForScroll = function __closeMobileMenuForScroll() {
+  function releasePageScroll() {
     document.body.style.overflow = "";
     if (window.lenis && typeof window.lenis.start === "function") {
       window.lenis.start();
     }
-    closeMobileMenu();
+  }
+
+  function openMobileMenu() {
+    clearMenuCloseTimer();
+    if (window.lenis && typeof window.lenis.stop === "function") {
+      window.lenis.stop();
+    }
+    document.body.style.overflow = "hidden";
+    navigationPanel.classList.add("is-menu-open");
+    navigationPanel.setAttribute("aria-hidden", "false");
+    mobileMenuOpenButton.setAttribute("aria-expanded", "true");
+  }
+
+  function closeMobileMenu({ releaseScrollImmediately = false } = {}) {
+    clearMenuCloseTimer();
+    navigationPanel.classList.remove("is-menu-open");
+    navigationPanel.setAttribute("aria-hidden", "true");
+    mobileMenuOpenButton.setAttribute("aria-expanded", "false");
+
+    if (releaseScrollImmediately) {
+      releasePageScroll();
+      return;
+    }
+
+    menuCloseAnimationTimerId = setTimeout(() => {
+      menuCloseAnimationTimerId = null;
+      releasePageScroll();
+    }, MENU_TRANSITION_DURATION_MS);
+  }
+
+  /** @returns {boolean} */
+  window.__isMobileMenuOpen = function __isMobileMenuOpen() {
+    return navigationPanel.classList.contains("is-menu-open");
+  };
+
+  /** Closes the menu and restarts Lenis; used before programmatic scroll from anchors. */
+  window.__closeMobileMenuForScroll = function __closeMobileMenuForScroll() {
+    closeMobileMenu({ releaseScrollImmediately: true });
   };
 
   mobileMenuOpenButton.addEventListener("click", openMobileMenu);
